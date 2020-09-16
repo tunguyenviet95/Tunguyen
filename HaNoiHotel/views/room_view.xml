@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="rooms_tree_view" model="ir.ui.view">
+        <field name="name">Rooms Tree View</field>
+        <field name="model">rooms</field>
+        <field name="arch" type="xml">
+            <tree string="Rooms">
+                <field name="room_avatar" widget="image" width="50px" height="200px"/>
+                <field name="room_code"/>
+                <field name="room_type"/>
+                <field name="room_state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="rooms_form_view" model="ir.ui.view">
+        <field name="name">Rooms Form View</field>
+        <field name="model">rooms</field>
+        <field name="arch" type="xml">
+            <form string="Rooms">
+                <header>
+                    <button name="avalable_change" string="Avalable"
+                                class="oe_highlight" room_states="operational" type="object"/>
+                        <button name="confirm_change" string="Confirm"
+                                class="oe_highlight" room_states="available" type="object"/>
+                            <button name="operational_change" string="Operation"
+                                    class="oe_highlight" room_states="confirmed" type="object"/>
+                    <field name="room_state" widget="statusbar" statusbar_visible="avalable,confirmed,operational"/>
+                </header>
+                <sheet>
+                    <group string="Information">
+                        <field name="room_avatar" widget="image" width="50px" height="200px"/>
+                        <field name="room_code"/>
+<!--                        <field name="room_type"/>-->
+<!--                        <field name="room_state"/>-->
+                        <field name="price_room"/>
+                        <field name="room_description"/>
+                    </group>
+                    <group string="Room Amenities">
+                        <group>
+                            <field name="wifi"/>
+                            <field name="air_conditioned"/>
+                            <field name="alarm_clock"/>
+                            <field name="Bathtub"/>
+                            <field name="coffeemaker"/>
+                            <field name="Connecting_Rooms"/>
+                            <field name="Free_Newspaper"/>
+                            <field name="Hairdryer_In_Room"/>
+                            <field name="High_Speed_Internet"/>
+                        </group>
+                        <group>
+                            <field name="Iron"/>
+                            <field name="Ironing_Board"/>
+                            <field name="Lake_View"/>
+                            <field name="Modem_in_Room"/>
+                            <field name="Shower"/>
+                            <field name="Telephone"/>
+                            <field name="Toilet"/>
+                            <field name="Turndown_Service"/>
+                            <field name="WC"/>
+                        </group>
+                    </group>
+                    <group string="Booking">
+                        <field name="booking_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="room_search_view" model="ir.ui.view">
+        <field name="name">Room Search</field>
+        <field name="model">rooms</field>
+        <field name="arch" type="xml">
+            <search string="Room state">
+                <searchpanel>
+                    <field name="room_state" icon="fa-search-plus"/>
+                    <field name="room_type" icon="fa-search-plus"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <record id="rooms_action" model="ir.actions.act_window">
+        <field name="name">Rooms</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">rooms</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="room_menu_item" name="Rooms" parent="HaNoi_Hotel" action="rooms_action"/>
+</odoo>

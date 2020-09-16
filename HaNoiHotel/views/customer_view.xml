@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="customer_tree_view" model="ir.ui.view">
+        <field name="name">Customer</field>
+        <field name="model">customer</field>
+        <field name="inherit_id" ref="res.partner"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='name']" position="">
+                <!-- Add new fields here -->
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="promotion_tree_view" model="ir.ui.view">
+        <field name="name">Promotion View</field>
+        <field name="model">promotion</field>
+        <field name="arch" type="xml">
+            <tree string="Promotion">
+                <field name="name"/>
+                <field name="promotion"/>
+<!--                <field name="description"/>-->
+                <field name="start_date"/>
+                <field name="expiration_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="promotion_Form_view" model="ir.ui.view">
+        <field name="name">Promotion Form</field>
+        <field name="model">promotion</field>
+        <field name="arch" type="xml">
+            <form string="Promotion Form">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="promotion"/>
+                        <field name="description"/>
+                        <field name="start_date"/>
+                        <field name="expiration_date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="promotion_action" model="ir.actions.act_window">
+        <field name="name">Promotions</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">promotion</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="HaNoi_Hotel" name="Ha Noi Hotel" sequence="1"/>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="promotion_menu_item" name="Promotion" parent="HaNoi_Hotel" action="promotion_action" sequence="1"/>
+</odoo>

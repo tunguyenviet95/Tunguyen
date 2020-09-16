@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="service_tree_view" model="ir.ui.view">
+        <field name="name">Service View</field>
+        <field name="model">service</field>
+        <field name="arch" type="xml">
+            <tree string="Service View">
+                <field name="name"/>
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="service_form_view" model="ir.ui.view">
+        <field name="name">Service Form</field>
+        <field name="model">service</field>
+        <field name="arch" type="xml">
+            <form string="Service Form">
+                <sheet>
+                    <group string="Service Form">
+                        <field name="name"/>
+                        <field name="price"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="service_action" model="ir.actions.act_window">
+        <field name="name">Service</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">service</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="service_menu_item" name="Service" parent="HaNoi_Hotel" action="service_action" sequence="3"/>
+</odoo>
